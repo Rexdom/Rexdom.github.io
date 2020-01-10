@@ -15,40 +15,143 @@
       crossorigin="anonymous"></script>
     <title>Leo Cheuk</title>
   </head>
-  <body>
+  <body scroll="no">
+    <header class="nav">
+      <div class="logo-wrapper">
+          <div class="logo">Logo</div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#home" class='active'>HOME</a></li>
+          <li><a href='#about'>ABOUT</a></li>
+          <li><a href='#skills'>PROFESSIONAL</a></li>
+          <li><a href='#projects'>PROFOLIO</a></li>
+          <li><a href='#contact'>CONTACT</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div id="home"></div>
     <div class="background">
-      <header class="nav">
-        <div class="logo-wrapper">
-            <div class="logo">Logo</div>
+      <div class="title-wrapper">
+        <div class="title" aria-label="Hi, I am CHEUK KA HO, a web developer">
+            <span class='word'>H</span><span class='word'>i</span><span class='word'>,</span>
+            <br>
+            <span class='word'>I</span><span class='word'>'</span><span class='word'>m</span>
+            <span class='word'>L</span><span class='word'>e</span><span class='word'>o</span>
+            <span class='word'>C</span><span class='word'>H</span><span class='word'>E</span><span class='word'>U</span><span class='word'>K</span><span class='word'>.</span>
+            <br>
+            <span class='word word-small'>W</span><span class='word word-small'>E</span><span class='word word-small'>B</span>
+            <span class='word word-small'>D</span><span class='word word-small'>E</span><span class='word word-small'>V</span><span class='word word-small'>E</span><span class='word word-small'>L</span><span class='word word-small'>O</span><span class='word word-small'>P</span><span class='word word-small'>E</span><span class='word word-small'>R</span>
         </div>
-        <nav>
-          <ul>
-            <li class="active">ABOUT</li>
-            <li>PROJECTS</li>
-            <li>CONTACT</li>
-          </ul>
-        </nav>
-      </header>
-      <div class="title">
-        Leo Cheuk's personal webpage
       </div>
     </div>
     <main>
-      <div>
-        <p>Personal Webpage</p>
+      <div class="section section1" id="about">
+        <div class="heading">
+          <div><p class='typewriter untriggered'>ABOUT ME</p></div>
+          <div><p class='typewriter2 untriggered'>Front End Developer</p></div>
+          <div class='slideIn untriggered'></div>
+        </div>
+        <div>
+          <div class="intro">
+            <p>A graduate student in HKUST. Interest in writing code that can help people.</p>
+          </div>
+          <div class='column' style="text-align: center">
+            <section>
+              <div>Fast</div>
+              <div>Minimize loading time and lag</div>
+            </section>
+            <section>
+              <div>Responsive</div>
+              <div>Websites can be display on different size of devices</div>
+            </section>
+            <section>
+              <div>Easy to use</div>
+              <div>Intuitive UI design</div>
+            </section>
+            <section>
+              <div>Error free</div>
+              <div>No bug that will annoy user</div>
+            </section>
+          </div>
+        </div>
+        <div class='transition transition1'>
+          <svg width="0" height="0">
+            <defs>
+              <clipPath clipPathUnits="objectBoundingBox" id="clipper1">
+                <path d="M0,0 1,1 0,1z" />
+              </clipPath>
+            </defs>
+          </svg>
+        </div>
       </div>
-      <div>
-        <p>Name: CHEUK KaHo(卓嘉豪)</p>
-        <p>Age: 23</p>
-        <p>Email: cheukkaho@hotmail.com</p>
+      <div class='section section2' id="skills">
+        <div class="heading">
+          <div>PROFESSIONAL</div>
+          <div>My Knowledge Level In Software</div>
+          <div></div>
+        </div>
+        <div class='column'>
+          <section>
+            <div>Frontend</div>
+            <div>HTML & CSS : 80%</div>
+            <div>Javascript : 90%</div>
+            <div>jQuery : 80%</div>
+            <div>BootStrap : 70%</div>
+            <div>React : 50%</div>
+          </section>
+          <section>
+            <div>Backend</div>
+            <div>NodeJS : 50%</div>
+            <div>Express : 40%</div>
+            <div>MongoDB : 40%</div>
+          </section>  
+        </div>
+        <div class='transition transition2'>
+          <svg width="0" height="0">
+            <defs>
+              <clipPath clipPathUnits="objectBoundingBox" id="clipper2">
+                <path d="M0,1 1,0 1,1z" />
+              </clipPath>
+            </defs>
+          </svg>
+        </div>
       </div>
-      <div>
-        <p>Skills: HTML+CSS+Javascript+React+Bootstrap+JQuery+NodeJS+Express</p>
+      <div class='section section3' id="projects">
+        <div class='heading'>
+          <div>PROFOLIO</div>
+          <div>Recent Projects</div>
+          <div></div>
+        </div>
+        <div class='row'>
+          <a href="https://calculator.rexdom123.now.sh" target="_blank">Calculator</a>
+          <a href="https://rexdom-chatroom.heroku.com" target="_blank">Chat Room</a>
+          <img class='picture' src="picture/background.jpg"></img>
+        </div>
+        <div class='transition transition3'>
+          <svg width="0" height="0">
+            <defs>
+              <clipPath clipPathUnits="objectBoundingBox" id="clipper3">
+                <path d="M0,0 0,1 1,1 1,0 0.5,1z" />
+              </clipPath>
+            </defs>
+          </svg>
+        </div>
       </div>
-      <div>
-        <p>Personal project</p>
-        <p>Calculator</p>
-        <p>Chat Room</p>
+      <div class='section section4' id="contact">
+        <div class='heading'>
+          <div>CONTACT</div>
+          <div>Get In Touch</div>
+          <div></div>
+        </div>
+        <div style="display:flex; flex-direction:column; align-items:center;">
+          <form method="POST" action="">
+            <input type="text" name="name" placeholder="Name">
+            <input type="text" name="email" placeholder="Email">
+            <textarea name="message" placeholder="Message" style="height:5em"></textarea>
+            <input type="submit" name="submit" value="Let's talk" style="cursor: pointer">
+          </form>
+        </div>
       </div>
     </main>
     <script src="javascript/index.js"></script>

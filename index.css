@@ -2,19 +2,29 @@ body {
     background-color: blanchedalmond;
     font-family: basiersquare-regular-webfont, Arial, Helvetica, sans-serif;
     margin:0;
+    width:100vw;
+    overflow-x: hidden;
+}
+
+p{
+    margin:0;
 }
 
 .background{
-    background-image: url("picture/background.jpg");
-    background-size: 100%;
+    background-color: rgb(58, 20, 20);
+    background-size: cover;
     background-repeat: no-repeat;
-    height:calc(9/16 *100vw);
+    height:100vh;
+    width:100vw;
+    position: fixed;
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 
 .nav {
+    background-color: rgba(53, 54, 55, 0.25);
+    color:white;
     font-size: 14px;
     align-items: center;
     display: flex;
@@ -23,67 +33,348 @@ body {
     top: 0;
     height: 102px;
     width: 100vw;
-    z-index: 2;
+    z-index: 3;
     font-weight:700;
+    transition: background-color 800ms linear, height 500ms;
 }
 
 .nav.scrolled {
+    height:65px;
     background-color: black;
-    color:white;
-    transition: background-color 200ms linear;
+    transition: background-color 800ms linear, height 500ms;
 }
 
 .logo-wrapper{
     flex: auto;
-    margin-left:2em;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    height:100%;
 }
 
 .logo {
-    height:102px;
+    box-sizing:border-box;
+    margin-left:2em;
+    height:80%;
     width:102px;
-    background-color: brown;
+    background-color: rgb(34, 129, 129);
+    text-align: center;
 }
 
 nav {
     margin-right:1em;
-}
+    height:100%;
+ }
 
-nav ul{
+ nav ul{
     flex: none;
     display:flex;
     flex-direction: row;
     list-style: none;
+    margin:0;
+    height:100%;
 }
 
-nav ul li{
+nav ul li a{
     cursor: pointer;
-    height:102px;
+    height:100%;
     padding:0 2em;
     display:flex;
     flex-direction: row;
     align-items: center;
     letter-spacing: 1px;
+    transition: background-color 1000ms;
 }
 
-nav ul li.active{
+nav ul li a.active{
     background-color: red;
-    color:white;
 }
 
-nav ul li:hover{
+nav ul li a:hover{
     background-color: red;
+}
+
+a{
     color:white;
-    transition: background-color 800ms, color 800ms;
+    text-decoration: none;
+}
+
+.title-wrapper{
+    position: relative;
+    left:10%;
+    display:flex;
 }
 
 .title{
-    width:100vw;
-    text-align:center;
-    font-size: 5vw;
-    letter-spacing: -2px;
+    position: relative;
     font-weight: 600;
+    font-size: calc(20px + 2vw);
+    letter-spacing: -2px;
+    color:rgb(226, 225, 228);
+}
+
+@keyframes bounceIn { 
+    0% {
+        -webkit-transform: scale(.3, .3);
+        -ms-transform: scale(.3, .3);
+        transform:scale(.3, .3)
+    }
+
+    20% {
+        opacity: 1;
+        -webkit-transform: scale(1.13, 1.13);
+        -ms-transform: scale(1.13, 1.13);
+        transform:scale(1.13, 1.13)
+    }
+
+    40% {
+        opacity: 1;
+        -webkit-transform: scale(.9, .9);
+        -ms-transform: scale(.9, .9);
+        transform:scale(.9, .9)
+    }
+
+    60% {
+        -webkit-transform: scale(1.03, 1.03);
+        -ms-transform: scale(1.03, 1.03);
+        transform:scale(1.03, 1.03)
+    }
+
+    80% {
+        -webkit-transform: scale(.97, .97);
+        -ms-transform: scale(.97, .97);
+        transform:scale(.97, .97)
+    }
+
+    100% {
+        opacity:1;
+        -webkit-transform: scale(1, 1);
+        -ms-transform: scale(1, 1);
+        transform:scale(1, 1)
+    }
+}
+
+.word{
+    opacity: 0;
+    display:inline-block;
+}
+
+.word-small{
+    opacity: 0;
+    display:inline-block;
+    font-size:0.5em;
+    font-weight:500;
+    letter-spacing:0;
+}
+
+.bounce{
+    animation-name: bounceIn;
+    animation-duration: 0.8s;
+    animation-fill-mode: forwards;
 }
 
 main {
-    padding: 50px 30px;
+    position: relative;
+    top:100vh;
+    width: 100vw;
+    background-color: white;
+    color: seashell;
+    z-index:2;
+}
+
+#home{
+    position: absolute;
+    display: hidden;
+    height: 100vh;
+}
+
+#contact{
+    height: 900px;
+}
+
+.section{
+    padding: 200px 30px 0;
+    word-wrap: break-word;
+    display: flex;
+    box-sizing: border-box;
+    width:100%;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section>div:nth-child(2){
+    padding-bottom: 200px;
+    margin:0 calc(-50px + 10vw);
+    line-height: 2em;
+    width:calc(100% - 2 * calc(-50px + 10vw));
+}
+
+.column{
+    display: flex;
+    width:100%;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.column section{
+    width:200px;
+}
+
+.row{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.section1{
+    background-color: rgb(32,35,44);
+}
+
+.intro{
+    margin-bottom:3em;
+    width:300px;
+}
+
+.section2{
+    background-color: rgb(25,28,35);
+}
+
+.section3{
+    background-color: rgb(32,35,44);
+}
+
+.section4{
+    background-color: rgb(25,28,35);
+}
+
+.heading{
+    position: relative;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.heading div:nth-child(1){
+    font-size: 3.5em;
+    font-weight: 600;
+    letter-spacing: -1px;
+    margin-bottom: 0.5em;
+    width:max-content;
+}
+
+.heading div:nth-child(2){
+    font-size: 1em;
+    letter-spacing: 3px;
+    width:max-content;
+}
+
+.heading div:nth-child(3){
+    width:130px;
+    margin:2em 0;
+    position: relative;
+    border-bottom: 1px solid white;
+}
+
+.untriggered{
+    visibility: hidden;
+}
+
+.typewriter.triggered{
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .05em solid white;
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0; /* Gives that scrolling effect as the typing happens */
+    animation: typing 0.5s steps(40, end);
+    animation-fill-mode: both;
+}
+.typewriter2.triggered{
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .05em solid white;
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0; /* Gives that scrolling effect as the typing happens */
+    animation: typing 1s steps(40, end);
+    animation-delay: 0.8s;
+    animation-fill-mode: both;
+}
+.slideIn.triggered{
+    animation: slideIn 1s;
+    animation-delay: 2s;
+    animation-fill-mode: both;
+}
+@keyframes typing {
+    0% {
+        opacity:0;
+        width: 0;
+        border-right: .05em solid white;
+    }
+    1% {
+        opacity: 1;
+    }
+    99.9% {
+        border-right: .05em solid white;
+    }
+    100% {
+        opacity: 1;
+        border-right-color: transparent;
+        width:100%;
+    }
+}
+@keyframes slideIn {
+    0% {left:-100px;opacity: 0;}
+    50% {opacity: 1;}
+    to {left:0; opacity: 1; }
+}
+  
+
+.picture {
+    width:200px;
+    cursor: pointer;
+    transition: transform .2s;
+}
+
+.picture:hover {
+    transform: scale(1.1);
+}
+
+.transition {
+    height: 100px;
+    width: 100vw;
+    margin-left:-30px;
+    margin-right:-30px;
+}
+
+.transition1 {
+    background-color: rgb(25,28,35);
+    -webkit-clip-path: url(#clipper1);
+    -moz-clip-path: url(#clipper1);
+    clip-path: url(#clipper1);
+}
+
+.transition2 {
+    background-color: rgb(32,35,44);
+    -webkit-clip-path: url(#clipper2);
+    -moz-clip-path: url(#clipper2);
+    clip-path: url(#clipper2);
+}
+
+.transition3 {
+    background-color: rgb(25,28,35);
+    -webkit-clip-path: url(#clipper3);
+    -moz-clip-path: url(#clipper3);
+    clip-path: url(#clipper3);
+}
+
+form {
+    width:300px;
+    display: flex;
+    flex-direction: column;
+}
+
+form * {
+    height:1.5em;
+    margin-bottom: 10px;
+    vertical-align: top;
 }
