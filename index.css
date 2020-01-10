@@ -218,10 +218,6 @@ main {
     flex-wrap: wrap;
 }
 
-.column section{
-    width:200px;
-}
-
 .row{
     display: flex;
     flex-direction: column;
@@ -235,10 +231,32 @@ main {
 .intro{
     margin-bottom:3em;
     width:300px;
+    text-align: left;
+    height:300px;
+}
+
+.column.intro-skill section{
+    width:200px;
+}
+
+.column.intro-skill section div:first-child{
+    font-size:1.5em;
+    margin-bottom: 10px;
+    font-weight:600;
+}
+
+.column.intro-skill section div:nth-child(2){
+    text-align: left;
 }
 
 .section2{
     background-color: rgb(25,28,35);
+}
+
+.column.skill section div:first-child{
+    font-size:1.5em;
+    margin-bottom: 10px;
+    font-weight: 600;
 }
 
 .section3{
@@ -263,12 +281,14 @@ main {
     letter-spacing: -1px;
     margin-bottom: 0.5em;
     width:max-content;
+    position: relative;
 }
 
 .heading div:nth-child(2){
     font-size: 1em;
     letter-spacing: 3px;
     width:max-content;
+    position: relative;
 }
 
 .heading div:nth-child(3){
@@ -299,9 +319,14 @@ main {
     animation-delay: 0.8s;
     animation-fill-mode: both;
 }
-.slideIn.triggered{
+.slideIn3.triggered{
     animation: slideIn 1s;
     animation-delay: 2s;
+    animation-fill-mode: both;
+}
+.slideIn.triggered{
+    animation: slideIn 1s;
+    animation-delay: 0.3s;
     animation-fill-mode: both;
 }
 @keyframes typing {
