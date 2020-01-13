@@ -9,13 +9,13 @@ $(function() {
     if (counter>=$word.length) {
       clearInterval(bounceAnimation);
     };
-  }, 100);
+  }, 80);
 });
 
 var $trigger_arr = $('.untriggered');
 let $trigger=$trigger_arr.length>0?$trigger_arr.first():null;
 $(document).scroll(function () {
-  let newCurrent = arrSection.findIndex((element)=>element.offset().top+element.outerHeight()>$(this).scrollTop());
+  let newCurrent = arrSection.findIndex((element)=>element.offset().top+element.outerHeight()-1>$(this).scrollTop());
   if (newCurrent!==current && newCurrent!==-1) {
     $('a[href="#'+arrSection[current].attr('id')+'"]').removeClass('active');
     $('a[href="#'+arrSection[newCurrent].attr('id')+'"]').addClass('active');

@@ -8,7 +8,8 @@
       name="description"
       content="Personal Webpage"
     />
-    <link rel='stylesheet' href='index.css'>
+    <link href='index.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script 
       src="https://code.jquery.com/jquery-3.4.1.min.js"
       integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
@@ -22,11 +23,11 @@
       </div>
       <nav>
         <ul>
-          <li><a href="#home" class='active'>HOME</a></li>
-          <li><a href='#about'>ABOUT</a></li>
-          <li><a href='#skills'>PROFESSIONAL</a></li>
-          <li><a href='#projects'>PROFOLIO</a></li>
-          <li><a href='#contact'>CONTACT</a></li>
+          <li><a href="#home" class='active'><div class='nav-item'>HOME</div><i class="material-icons">home</i></a></li>
+          <li><a href='#about'><div class='nav-item'>ABOUT</div><i class="material-icons">info</i></a></li>
+          <li><a href='#skills'><div class='nav-item'>PROFESSIONAL</div><i class="material-icons">work_outline</i></a></li>
+          <li><a href='#projects'><div class='nav-item'>PROFOLIO</div><i class="material-icons">list</i></a></li>
+          <li><a href='#contact'><div class='nav-item'>CONTACT</div><i class="material-icons">settings_phone</i></a></li>
         </ul>
       </nav>
     </header>
@@ -40,36 +41,59 @@
             <span class='word'>L</span><span class='word'>e</span><span class='word'>o</span>
             <span class='word'>C</span><span class='word'>H</span><span class='word'>E</span><span class='word'>U</span><span class='word'>K</span><span class='word'>.</span>
             <br>
-            <span class='word word-small'>W</span><span class='word word-small'>E</span><span class='word word-small'>B</span>
-            <span class='word word-small'>D</span><span class='word word-small'>E</span><span class='word word-small'>V</span><span class='word word-small'>E</span><span class='word word-small'>L</span><span class='word word-small'>O</span><span class='word word-small'>P</span><span class='word word-small'>E</span><span class='word word-small'>R</span>
+            <div class='word-small'>
+              <span class='word'>W</span><span class='word'>E</span><span class='word'>B</span>
+              <span class='word'>D</span><span class='word'>E</span><span class='word'>V</span><span class='word'>E</span><span class='word'>L</span><span class='word'>O</span><span class='word'>P</span><span class='word'>E</span><span class='word'>R</span>
+            </div>
+            
         </div>
       </div>
     </div>
     <main>
       <div class="section section1" id="about">
         <div class="heading">
-          <div><p class='typewriter untriggered'>ABOUT ME</p></div>
+          <div><p class='typewriter1 untriggered'>ABOUT ME</p></div>
           <div><p class='typewriter2 untriggered'>Front End Developer</p></div>
-          <div class='slideIn3 untriggered'></div>
+          <div class='slideIn untriggered'></div>
         </div>
         <div>
-          <div class="intro">
+          <div class="intro slideIn untriggered">
             <p>A graduate student in HKUST. Interest in writing code that can help people.</p>
           </div>
-          <div class='column intro-skill' style="text-align: center">
+          <div class='column intro-skill slideIn untriggered'>
             <section>
+              <div class='icon-wrapper'>
+                <div class='icon-container'>
+                  <i class="material-icons">timer</i>
+                </div>
+              </div>
               <div>Fast</div>
               <div>Minimize loading time and lag</div>
             </section>
             <section>
+              <div class='icon-wrapper'>
+                <div class='icon-container'>
+
+                </div>
+              </div>
               <div>Responsive</div>
               <div>Websites can be display on different size of devices</div>
             </section>
             <section>
+              <div class='icon-wrapper'>
+                <div class='icon-container'>
+
+                </div>
+              </div>
               <div>Easy to use</div>
               <div>Intuitive UI design</div>
             </section>
             <section>
+              <div class='icon-wrapper'>
+                <div class='icon-container'>
+
+                </div>
+              </div>
               <div>Error free</div>
               <div>No bug that will annoy user</div>
             </section>
@@ -87,8 +111,8 @@
       </div>
       <div class='section section2' id="skills">
         <div class="heading">
-          <div class='slideIn untriggered'>PROFESSIONAL</div>
-          <div class='slideIn untriggered'>My Knowledge Level In Software</div>
+          <div><p class='typewriter1 untriggered'>PROFESSIONAL</p></div>
+          <div><p class='typewriter2 untriggered'>My Knowledge Level In Software</p></div>
           <div class='slideIn untriggered'></div>
         </div>
         <div class='column skill'>
@@ -119,20 +143,20 @@
       </div>
       <div class='section section3' id="projects">
         <div class='heading'>
-          <div class='slideIn untriggered'>PROFOLIO</div>
-          <div class='slideIn untriggered'>Recent Projects</div>
+          <div><p class='typewriter1 untriggered'>PROFOLIO</p></div>
+          <div><p class='typewriter2 untriggered'>Recent Projects</p></div>
           <div class='slideIn untriggered'></div>
         </div>
         <div class='row'>
           <a href="https://calculator.rexdom123.now.sh" target="_blank">Calculator</a>
-          <a href="https://rexdom-chatroom.heroku.com" target="_blank">Chat Room</a>
+          <a href="https://rexdom-chatroom.herokuapp.com" target="_blank">Chat Room</a>
           <img class='picture' src="picture/background.jpg"></img>
         </div>
         <div class='transition transition3'>
           <svg width="0" height="0">
             <defs>
               <clipPath clipPathUnits="objectBoundingBox" id="clipper3">
-                <path d="M0,0 0,1 1,1 1,0 0.5,1z" />
+                <path d="M0,0 0,1 1,1 1,0 0.5,1z" stroke="#8ebf42"/>
               </clipPath>
             </defs>
           </svg>
@@ -140,8 +164,8 @@
       </div>
       <div class='section section4' id="contact">
         <div class='heading'>
-          <div class='slideIn untriggered'>CONTACT</div>
-          <div class='slideIn untriggered'>Get In Touch</div>
+          <div><p class='typewriter1 untriggered'>CONTACT</p></div>
+          <div><p class='typewriter2 untriggered'>Get In Touch</p></div>
           <div class='slideIn untriggered'></div>
         </div>
         <div style="display:flex; flex-direction:column; align-items:center;">
