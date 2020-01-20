@@ -25,9 +25,9 @@
         <ul>
           <li><a href="#home" class='active'><div class='nav-item'>HOME</div><i class="material-icons">home</i></a></li>
           <li><a href='#about'><div class='nav-item'>ABOUT</div><i class="material-icons">info</i></a></li>
-          <li><a href='#skills'><div class='nav-item'>PROFESSIONAL</div><i class="material-icons">work_outline</i></a></li>
-          <li><a href='#projects'><div class='nav-item'>PROFOLIO</div><i class="material-icons">list</i></a></li>
-          <li><a href='#contact'><div class='nav-item'>CONTACT</div><i class="material-icons">settings_phone</i></a></li>
+          <li><a href='#skills'><div class='nav-item'>SKILLS</div><i class="material-icons">build</i></a></li>
+          <li><a href='#projects'><div class='nav-item'>PROFOLIO</div><i class="material-icons">work_outline</i></a></li>
+          <li><a href='#contact'><div class='nav-item'>CONTACT</div><i class="material-icons">mail_outline</i></a></li>
         </ul>
       </nav>
     </header>
@@ -53,49 +53,59 @@
       <div class="section section1" id="about">
         <div class="heading">
           <div><p class='typewriter1 untriggered'>ABOUT ME</p></div>
-          <div><p class='typewriter2 untriggered'>Front End Developer</p></div>
+          <div><p class='typewriter2 untriggered'>My Story</p></div>
           <div class='slideIn untriggered'></div>
         </div>
         <div>
-          <div class="intro slideIn untriggered">
-            <p>A graduate student in HKUST. Interest in writing code that can help people.</p>
+          <div class="intro untriggered">
+            <div class="slideRight"> 
+              <p>
+                I'm a graduate student in Hong Kong Univeristy of Science and Technology, passionate about writing clean, creactive websites.
+              </p>
+              <p>
+                Interested in coding. Enjoy learning new skills and solving problems in simple and intuitive way.
+              </p>
+            </div>
+            <div class='popUp'>
+              <img src='picture/backgroud.jpg' style='width:300px; height:200px'>
+            </div>
           </div>
-          <div class='column intro-skill slideIn untriggered'>
-            <section>
-              <div class='icon-wrapper'>
+          <div class='column intro-skill'>
+            <section class="untriggered">
+              <div class='icon-wrapper  flipIn'>
                 <div class='icon-container'>
                   <i class="material-icons">timer</i>
                 </div>
               </div>
-              <div>Fast</div>
-              <div>Minimize loading time and lag</div>
+              <div class='slideDown'>Fast</div>
+              <div class='slideDown'>Always focus on minimizing load time for better user experience.</div>
             </section>
             <section>
-              <div class='icon-wrapper'>
+              <div class='icon-wrapper flipIn'>
                 <div class='icon-container'>
-
+                  <i class="material-icons">important_devices</i>
                 </div>
               </div>
-              <div>Responsive</div>
-              <div>Websites can be display on different size of devices</div>
+              <div class='slideDown'>Responsive</div>
+              <div class='slideDown'>Layout is designed to fit in different size of devices.</div>
             </section>
             <section>
-              <div class='icon-wrapper'>
+              <div class='icon-wrapper flipIn'>
                 <div class='icon-container'>
-
+                  <i class="material-icons">people</i>
                 </div>
               </div>
-              <div>Easy to use</div>
-              <div>Intuitive UI design</div>
+              <div class='slideDown'>User friendly</div>
+              <div class='slideDown'>Intuitive design allows user to find what they need easily.</div>
             </section>
             <section>
-              <div class='icon-wrapper'>
+              <div class='icon-wrapper flipIn'>
                 <div class='icon-container'>
-
+                    <i class="material-icons">touch_app</i>
                 </div>
               </div>
-              <div>Error free</div>
-              <div>No bug that will annoy user</div>
+              <div class='slideDown'>Interactive</div>
+              <div class='slideDown'>Pages are not static, but can respond to user's action.</div>
             </section>
           </div>
         </div>
@@ -111,25 +121,33 @@
       </div>
       <div class='section section2' id="skills">
         <div class="heading">
-          <div><p class='typewriter1 untriggered'>PROFESSIONAL</p></div>
+          <div><p class='typewriter1 untriggered'>SKILLS</p></div>
           <div><p class='typewriter2 untriggered'>My Knowledge Level In Software</p></div>
           <div class='slideIn untriggered'></div>
         </div>
-        <div class='column skill'>
-          <section>
-            <div>Frontend</div>
-            <div>HTML & CSS : 80%</div>
-            <div>Javascript : 90%</div>
-            <div>jQuery : 80%</div>
-            <div>BootStrap : 70%</div>
-            <div>React : 50%</div>
-          </section>
-          <section>
-            <div>Backend</div>
-            <div>NodeJS : 50%</div>
-            <div>Express : 40%</div>
-            <div>MongoDB : 40%</div>
-          </section>  
+        <div class='skill'>
+          <div class='column'>
+            <div>
+              <p>The majority of my expertise is in front end development.</p>
+              <p>HTML, CSS, JavaScript, building single page application(SPA) with React, applying responsive webpage design(RWD).</p>
+              <p>I have also experience developing website in back end (Node.js + Express + MongoDB)</p>
+            </div>
+            <canvas  width='600' height='200' id="canvas_skill">
+              <ul id="skill_list">
+                <li id="HTML5">HTML5</li>
+                <li id="CSS">CSS</li>
+                <li id="Javascript">JavaScript</li>
+                <li id="jQuery">jQuery</li>
+                <li id="Bootstrap">BootStrap</li>
+                <li id="React">React</li>
+                <li id="Node.js">Node.jS</li>
+                <li id="MongoDB">MongoDB</li>
+                <li id="Express">Express</li>
+                <li id="Git">Git</li>
+                <li id="socket.io">socket.io</li>
+              </ul>
+            </canvas>
+          </div>  
         </div>
         <div class='transition transition2'>
           <svg width="0" height="0">
@@ -170,8 +188,6 @@
         </div>
         <div style="display:flex; flex-direction:column; align-items:center;">
           <form method="POST" action="">
-            <input type="text" name="name" placeholder="Name">
-            <input type="text" name="email" placeholder="Email">
             <textarea name="message" placeholder="Message" style="height:5em"></textarea>
             <input type="submit" name="submit" value="Let's talk" style="cursor: pointer">
           </form>
@@ -179,5 +195,6 @@
       </div>
     </main>
     <script src="javascript/index.js"></script>
+    <script src="javascript/canvas.js"></script>
   </body>
 </html>
