@@ -4,6 +4,7 @@ var canvas = document.getElementById("canvas_skill"),
     particles = [],
     text='',
     isFalling=false,
+    isLoading = false,
     index=0,
     start=[],
     start_index=0,
@@ -14,8 +15,6 @@ var canvas = document.getElementById("canvas_skill"),
 var screenwidth = window.innerWidth;
 var width = canvas.width = screenwidth>600?600:screenwidth;
 var height = canvas.height = width/3;
-var Req;
-var isClean = false;
 
 function Particle(x,y,text){
     this.groundx = width*Math.random();
@@ -49,7 +48,7 @@ Particle.prototype.render = function(text) {
             this.vx=0;
             this.vy=0;
         }else {
-            this.accX = (this.dest.x - this.x)/3;
+            this.accX = (this.dest.x - this.x)/4;
             this.accY = (this.dest.y - this.y)/3;
             this.vx = this.accX;
             this.vy = this.accY;
@@ -61,7 +60,7 @@ Particle.prototype.render = function(text) {
             this.vx=0;
             this.vy=0;
         } else {
-            this.accX = this.sign*(this.groundy - this.y)*Math.random()*0.01;
+            this.accX = this.sign*(this.groundy - this.y)*Math.random()*0.02;
             this.accY = (this.groundy - this.y)/100;
             this.vx += this.accX;
             this.vy += this.accY;
@@ -94,7 +93,9 @@ function initScene(){
     screenwidth = window.innerWidth;
     width = canvas.width = screenwidth>600?600:screenwidth;
     height = canvas.height = width/3;
+    start=[];
     particles=[];
+    end=[];
     for (let skill=0;skill<skill_list.length;skill++){
         let word=skill_list[skill];
         ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -102,7 +103,7 @@ function initScene(){
         ctx.font = "bold "+width/5+"px arial";
         ctx.textAlign = "center";
         ctx.textBaseline = "top";
-        ctx.fillText(word, width/2, 0);
+        ctx.fillText(word, canvas.width/2, 0);
 
         var data  = ctx.getImageData(0, 0, width, height).data;
         ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -120,34 +121,47 @@ function initScene(){
     index = skill_list.indexOf(text);
     start_index = start[index];
     end_index = end[index];
+    isLoading = false;
+    setTimeout(function(){
+        requestAnimationFrame(render);
+    },1000)
 }
 
 
 function render() {
-    setTimeout(function(){
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        for (var i = start_index; i < end_index; i++) {
-            particles[i].render(text);
-        }
-        if (isFalling && time==80) {
-            isFalling = false;
-            text=skill_list[Math.floor(Math.random()*(skill_list.length))];
-            index = skill_list.indexOf(text);
-            start_index = start[index];
-            end_index = end[index];
-            time = 0;
-        } else if (isFalling && time < 80){
-            time ++;
-        } else if (time < 100) {
-            time ++;
-        } else if (time == 100) {
-            isFalling = true; 
-            text = '';
-            time = 0;
-        }
-        requestAnimationFrame(render);
-    }, 25)
-    
+    var timer;
+    if (isLoading) {
+        if(timer) clearTimeout(timer);
+        time = 0;
+        isFalling=false;
+        initScene();
+        return;
+    }
+    if (!isLoading) {
+        timer = setTimeout(function(){
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (var i = start_index; i < end_index; i++) {
+                particles[i].render(text);
+            }
+            if (isFalling && time==100) {
+                isFalling = false;
+                text=skill_list[Math.floor(Math.random()*(skill_list.length))];
+                index = skill_list.indexOf(text);
+                start_index = start[index];
+                end_index = end[index];
+                time = 0;
+            } else if (isFalling && time < 100){
+                time ++;
+            } else if (time < 100) {
+                time ++;
+            } else if (time == 100) {
+                isFalling = true; 
+                text = '';
+                time = 0;
+            }
+            requestAnimationFrame(render);
+        }, 30)
+    }
 };
 
 initScene();
@@ -171,10 +185,7 @@ function debounce(fn, delay) {
     }
 }
 window.addEventListener("resize", debounce(function(){
-    initScene();
-    time = 0;
-    isFalling=false;
-    isClean = true;
+    isLoading = true;
 },1000));
 
 
