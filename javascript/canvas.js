@@ -5,12 +5,13 @@ var canvas = document.getElementById("canvas_skill"),
     text='',
     isFalling=false,
     isLoading = false,
+    isPlay=true,
     index=0,
     start=[],
     start_index=0,
     end=[],
     end_index=0,
-    time=0;
+    time=0
 
 var screenwidth = window.innerWidth;
 var width = canvas.width = screenwidth>600?600:screenwidth;
@@ -38,7 +39,6 @@ function Particle(x,y,text){
     this.text=text;
 
     this.color = 'white'
-    // colors[Math.floor(Math.random()*colors.length)];
 }
 
 Particle.prototype.render = function(text) {    
@@ -53,8 +53,7 @@ Particle.prototype.render = function(text) {
             this.vx = this.accX;
             this.vy = this.accY;
         }
-    } 
-    else {
+    } else {
         if(this.count>0){
             this.count -= 2;
             this.vx=0;
@@ -122,14 +121,16 @@ function initScene(){
     start_index = start[index];
     end_index = end[index];
     isLoading = false;
-    setTimeout(function(){
-        requestAnimationFrame(render);
-    },1000)
+    requestAnimationFrame(render);
 }
 
 
 function render() {
     var timer;
+    // if (!isPlay) {
+    //     if(timer) clearTimeout(timer);
+    //     return
+    // }
     if (isLoading) {
         if(timer) clearTimeout(timer);
         time = 0;
@@ -137,7 +138,7 @@ function render() {
         initScene();
         return;
     }
-    if (!isLoading) {
+    if (!isLoading && isPlay) {
         timer = setTimeout(function(){
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             for (var i = start_index; i < end_index; i++) {
@@ -160,12 +161,20 @@ function render() {
                 time = 0;
             }
             requestAnimationFrame(render);
-        }, 30)
+        }, 20)
     }
 };
 
+// $(document).keypress(function(e) {
+//     if (isPlay) {
+//         isPlay=false
+//     } else {
+//         isPlay = true
+//         requestAnimationFrame(render)
+//     }
+// })
+
 initScene();
-requestAnimationFrame(render);
 
 
 function debounce(fn, delay) {

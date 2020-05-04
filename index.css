@@ -24,18 +24,18 @@
     from {transform: translateX(500px);opacity: 0;}
     to {transform: translateX(0); opacity: 1; }
 }
-@keyframes openUp {
-    from {transform: translateY(0px);opacity: 1;}
+@keyframes showUp {
+    from {transform: translateY(200px) ;opacity: 1;}
     99.9% {opacity: 1;}
-    to {transform: translateY(-100px); opacity: 0; }
+    to {transform: translateY(0); opacity: 1; }
 }
 @keyframes openDown{
-    from {transform: translateY(0px);opacity: 1;}
+    from {transform: translateY(0); opacity: 1;}
     99.9% {opacity: 1;}
     to {transform: translateY(100px); opacity: 0; }
 }
 @keyframes slideDown {
-    from {transform: translateY(-50px);opacity: 0;}
+    from {transform: translateY(-50px); opacity: 0;}
     to {transform: translateY(0px); opacity: 1; }
 }
 @keyframes flipIn {
@@ -117,8 +117,6 @@ body {
     overflow-x: hidden;
 }
 
-
-
 p{
     margin:0;
 }
@@ -181,7 +179,7 @@ p{
     margin-left:2em;
     height:80%;
     width:102px;
-    background-color: rgb(34, 129, 129);
+    background-color: rgb(209, 209, 209);
     text-align: center;
 }
 
@@ -284,6 +282,7 @@ main {
     width:100%;
     flex-direction: column;
     align-items: center;
+    z-index: 2;
 }
 
 div{
@@ -332,33 +331,15 @@ div{
 }
 
 .intro div{
-    max-width:450px;
+    
+    max-width:800px;
 }
 
 .intro .popUp{
     height:200px;
-}
-
-.intro .popUp:before{
-    content:'';
-    width:300px;
-    height:100px;
-    position: absolute;
-    top:0;
-    left:0;
-    z-index:2;
-    background-color: rgb(32,35,44);
-}
-
-.intro .popUp:after{
-    content:'';
-    width:300px;
-    height:100px;
-    position: absolute;
-    bottom:0;
-    left:0;
-    z-index:2;
-    background-color: rgb(32,35,44);
+    display: flex;
+    flex-direction: row;
+    overflow-y: hidden;
 }
 
 .intro img{
@@ -384,14 +365,9 @@ div{
     
 }
 
-.triggered .popUp:before{
-    animation: openUp 2s;
-    animation-fill-mode: both;
-
-}
-.triggered .popUp:after{
-    animation: openDown 2s;
-    animation-fill-mode: both;
+.triggered .popUp img{
+    animation-name: showUp;
+    animation-duration: 5s;
 }
 .triggered .slideRight{
     animation-name: slideRight;
